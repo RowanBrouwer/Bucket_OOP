@@ -4,28 +4,41 @@ using System.Text;
 
 namespace Bucket_OOP.Classes
 {
-    sealed class Bucket : BucketBase
+    public sealed class Bucket : Container
     {
         #region
-        private int _content { get; set; }
-        private int _capacity { get; set; }
+        private delegate void CapacityReached(Bucket bucket);
         #endregion
 
-
-        public Bucket(int content, int capacity) : base(content, capacity)
+        public Bucket() : base()
         {
-            if (capacity >= content && capacity > 10 || capacity < 12)
-            {
-                this._content = content; this._capacity = capacity;
-            }
-            else
-            {
-                this.Capacity = 12; this.Content = 0;
-            }
+            this._IsOverflowed = _IsOverflowed;
         }
-        protected override void fill(int amount)
+        public Bucket(int capacity) : base(capacity)
         {
-            
+            this._Capacity = capacity;
+        }
+
+        public Bucket(int content, int capacity)
+        {
+            this._Content = content;
+            this._Capacity = capacity;
+        }
+        public int Content
+        {
+            get { return _Content; }
+            set { _Content = value; }
+        }
+        public int Capacity
+        {
+            get { return _Capacity; }
+            set { _Capacity = value; }
+        }
+
+        public bool IsOverFlowed
+        {
+            get { return _IsOverflowed; }
+            set { _IsOverflowed = value; }
         }
     }
 }
