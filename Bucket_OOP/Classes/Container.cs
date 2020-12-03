@@ -11,11 +11,10 @@ namespace Bucket_OOP.Classes
         public int _Capacity { get; set; }
         public int _Content { get; set; }
         public bool _IsOverflowed { get; set; }
+        public int Spilled { get; set; }
 
         private delegate void CapacityReached(Container container);
         #endregion
-
-        
 
         protected Container()
         {

@@ -13,6 +13,7 @@ namespace Bucket_OOP.Classes
             while (container._Content > container._Capacity)
             {
                 container._Content--;
+                container.Spilled++;
             }
             reached(container);
         }   

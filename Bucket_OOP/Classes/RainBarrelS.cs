@@ -4,19 +4,19 @@ using System.Text;
 
 namespace Bucket_OOP.Classes
 {
-    public sealed class Bucket : Container
+    public sealed class RainBarrelS : Container
     {
-        public Bucket() : base()
+        public RainBarrelS() : base()
         {
-            Capacity = 12;
+            Capacity = 80;
             this._IsOverflowed = _IsOverflowed;
         }
-        public Bucket(int capacity) : base(capacity)
+        public RainBarrelS(int capacity) : base(capacity)
         {
             this._Capacity = capacity;
         }
 
-        public Bucket(int content, int capacity)
+        public RainBarrelS(int content, int capacity)
         {
             this._Content = content;
             this._Capacity = capacity;
