@@ -8,7 +8,7 @@ namespace Bucket_OOP.Classes
     {
         public RainBarrelL() : base()
         {
-            Capacity = 159;
+            Capacity = 160;
             this.IsOverFlowed = IsOverFlowed;
         }
         public RainBarrelL(int capacity) : base(capacity)

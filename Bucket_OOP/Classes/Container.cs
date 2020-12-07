@@ -147,7 +147,6 @@ namespace Bucket_OOP.Classes
 
         public virtual void Empty(int amount)
         {
-            _spilled = 0;
             _isOverflowed = false;
             if (amount > _content)
             {
