@@ -106,10 +106,11 @@ namespace Bucket_OOP.Classes
             int Amount;
             if (this is Bucket)
             {
-                Amount = (this as Bucket).Content;
+                Amount = (bucket as Bucket).Content;
 
                 while (_content != _content+Amount)
                 {
+                    Amount--;
                     _content++;
 
                     if (_content == this._capacity)

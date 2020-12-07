@@ -64,6 +64,16 @@ namespace Buckets.Test
             sut.FillP(6);
 
             Assert.AreEqual(6, sut.Content);
+
+            var sut2 = new Bucket();
+
+            sut2.FillP(3);
+
+            Assert.AreEqual(3, sut2.Content);
+
+            sut.FillP(sut2);
+
+            Assert.AreEqual(9, sut.Content);
         }
 
         [TestMethod]
