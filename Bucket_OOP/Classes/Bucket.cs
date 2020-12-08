@@ -9,17 +9,17 @@ namespace Bucket_OOP.Classes
         public Bucket() : base()
         {
             Capacity = 12;
-            this.IsOverFlowed = IsOverFlowed;
+            _isOverflowed = IsOverFlowed;
         }
         public Bucket(int capacity) : base(capacity)
         {
-            this.Capacity = capacity;
+            capacity = Capacity;
         }
 
         public Bucket(int content, int capacity)
         {
-            this.Content = content;
-            this.Capacity = capacity;
+            content = Content;
+            capacity = Capacity;
         }
 
         public int Content
