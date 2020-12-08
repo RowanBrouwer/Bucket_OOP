@@ -112,6 +112,16 @@ namespace Buckets.Test
             sut.empty();
 
             Assert.AreEqual(0, sut.Spilled);
+
+            var sut2 = new Bucket();
+
+            sut.FillP(4);
+            sut2.FillP(10);
+
+            sut.FillP(sut2);
+
+            Assert.AreEqual(12, sut.Content);
+            Assert.AreEqual(2, sut.Spilled);
         }
 
         #endregion
