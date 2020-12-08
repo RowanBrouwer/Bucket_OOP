@@ -9,7 +9,7 @@ namespace Bucket_OOP.Classes
 {
     public abstract class Container
     {
-        private string EventReturnString;
+        private string EventReturnString { get; set; }
         #region
         protected int _capacity { get; set; }
         protected int _content { get; set; }
@@ -34,7 +34,7 @@ namespace Bucket_OOP.Classes
             this._capacity = capacity;
         }
 
-        public virtual void Fill(int amount)
+        protected virtual void Fill(int amount)
         {
             while (_content != _content + amount)
             {
@@ -101,7 +101,7 @@ namespace Bucket_OOP.Classes
             }
         }
 
-        public virtual void Fill(Container bucket)
+        protected virtual void Fill(Container bucket)
         {
             int Amount;
             if (this is Bucket)
@@ -139,14 +139,14 @@ namespace Bucket_OOP.Classes
             }
         }
 
-        public virtual void Empty()
+        protected virtual void Empty()
         {
             _content = 0;
             _isOverflowed = false;
             _spilled = 0;
         }
 
-        public virtual void Empty(int amount)
+        protected virtual void Empty(int amount)
         {
             _isOverflowed = false;
             if (amount > _content)
@@ -226,10 +226,34 @@ namespace Bucket_OOP.Classes
 
         public static void CapacityOverflowing(object sender, CapacityOverflowingEventArgs e)
         {
-            Container container = sender as Container;
-            container?.Empty(1);
 
-            // Notify that bucket is overflowing
+            if (sender is Bucket)
+            {
+                Bucket container = sender as Bucket;
+                container?.empty(1);
+            }
+            else if (sender is OilDrum)
+            {
+                OilDrum container = sender as OilDrum;
+                container?.empty(1);
+            }
+            else if (sender is RainBarrelS)
+            {
+                RainBarrelS container = sender as RainBarrelS;
+                container?.empty(1);
+            }
+            else if (sender is RainBarrelM)
+            {
+                RainBarrelM container = sender as RainBarrelM;
+                container?.empty(1);
+            }
+            else if (sender is RainBarrelL)
+            {
+                RainBarrelL container = sender as RainBarrelL;
+                container?.empty(1);
+            }
+
+            // Notify that Container is overflowing
             if (!e.DebugMessageSend)
             {
                 Debug.WriteLine($"A {e.GetType()} is overflowing");
